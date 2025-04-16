@@ -1,3 +1,4 @@
+import { Character } from "../models/character.js";
 const BASE_URL = "https://rickandmortyapi.com/api";
 async function fetchFromApi(endpoint) {
     const res = await fetch(`${BASE_URL}${endpoint}`);
@@ -5,6 +6,7 @@ async function fetchFromApi(endpoint) {
 }
 async function getFirst20Characters() {
     const data = await fetchFromApi("/character");
-    console.log(data.results);
+    const characters = data.results.map((item) => Character.fromJson(item));
+    return characters;
 }
 export { getFirst20Characters };

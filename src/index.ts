@@ -1,4 +1,7 @@
 import { getFirst20Characters } from "./api/api.js";
+import { CharacterCard, Character } from "./components/CharacterCard.js";
+
+// Define components
 
 const cardContainer = document.querySelector('[data-js="card-container"]');
 const searchBarContainer = document.querySelector(
@@ -14,3 +17,13 @@ const pagination = document.querySelector('[data-js="pagination"]');
 const maxPage = 1;
 const page = 1;
 const searchQuery = "";
+
+// Initialize
+
+async function initialize() {
+  const characterList = await getFirst20Characters();
+  const morty: Character = characterList[1];
+  cardContainer?.append(CharacterCard(morty));
+}
+
+initialize();
