@@ -3,7 +3,7 @@ type LocationInfo = {
   url: string;
 };
 
-export class Character {
+export default class Character {
   id: number;
   name: string;
   status: string;

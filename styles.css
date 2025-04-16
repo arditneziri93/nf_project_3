@@ -30,3 +30,9 @@ main {
 .title {
   padding: 10px 0;
 }
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}

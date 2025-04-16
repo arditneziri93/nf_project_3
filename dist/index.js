@@ -1,21 +1,25 @@
-import { getFirst20Characters } from "./api/api.js";
-import { CharacterCard } from "./components/CharacterCard.js";
-// Define components
-const cardContainer = document.querySelector('[data-js="card-container"]');
-const searchBarContainer = document.querySelector('[data-js="search-bar-container"]');
-const searchBar = document.querySelector('[data-js="search-bar"]');
-const navigation = document.querySelector('[data-js="navigation"]');
-const prevButton = document.querySelector('[data-js="button-prev"]');
-const nextButton = document.querySelector('[data-js="button-next"]');
-const pagination = document.querySelector('[data-js="pagination"]');
-// States
-const maxPage = 1;
-const page = 1;
-const searchQuery = "";
-// Initialize
-async function initialize() {
-    const characterList = await getFirst20Characters();
-    const morty = characterList[16];
-    cardContainer?.append(CharacterCard(morty));
+import PageState from "./state.js";
+const state = new PageState();
+/*
+function changePagination() {
+  if (pagination) {
+    pagination.innerHTML = `${page + 1} / ${maxPage}`;
+  }
 }
-initialize();
+
+function handlePagination(event: Event) {
+  const target = event.currentTarget as HTMLButtonElement;
+  const direction = Number(target.dataset.direction); // read from data-direction
+
+  page += direction;
+
+  if (page < 0) page = maxPage - 1;
+  if (page > maxPage - 1) page = 0;
+
+  changeCharacter();
+  changePagination();
+}
+*/
+// Initialization
+//nextButton?.addEventListener("click", handlePagination);
+//prevButton?.addEventListener("click", handlePagination);
